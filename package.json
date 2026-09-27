@@ -1,0 +1,38 @@
+{
+  "name": "promp-it",
+  "version": "1.10.13",
+  "description": "One-click vision analysis for any image: get a complete AI prompt with subject, pose, camera, lighting, composition, and style.",
+  "main": "background.js",
+  "scripts": {
+    "test": "node tests/smoke.test.js",
+    "test:live": "node tests/live-ollama.test.js",
+    "build": "node scripts/build-store-packages.js",
+    "lint": "node --check background.js content.js options.js scripts/build-store-packages.js tests/smoke.test.js"
+  },
+  "keywords": [
+    "chrome-extension",
+    "web-extension",
+    "ollama",
+    "vision-llm",
+    "prompt-engineering",
+    "image-to-prompt",
+    "qwen-vl",
+    "flux",
+    "midjourney",
+    "stable-diffusion"
+  ],
+  "author": "Baydy Art <https://baydy.art>",
+  "license": "MIT",
+  "homepage": "https://baydy.art",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baydy-art/Promp_it.git"
+  },
+  "bugs": {
+    "url": "https://github.com/baydy-art/Promp_it/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "private": true
+}

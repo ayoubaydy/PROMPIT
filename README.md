@@ -55,12 +55,6 @@ flowchart LR
 
 <p align="center"><sub>Local development preview of the shipped interaction surface. It uses a local mock response—no image is sent to a cloud service for this preview.</sub></p>
 
-<p align="center">
-  <img src="./demo-image.svg" alt="Abstract editorial still life used by the local preview harness" width="720">
-</p>
-
-<p align="center"><sub>The source visual used by <a href="./preview.html">the local preview harness</a>.</sub></p>
-
 ## What makes a prompt more exact
 
 ### Focus the evidence before analysis
@@ -193,13 +187,12 @@ options.*                      settings and runtime configuration
 tokens.css                     shared visual tokens
 icons/                         browser action and package icons
 assets/README/                 README-only, truthful project visuals
-preview.* / demo-image.svg     local interaction preview harness
 scripts/                       store-package builder
 store/                         listing copy, privacy policy, review, and submission guides
 tests/                         smoke and optional live-Ollama checks
 ```
 
-For contribution, security, and conduct guidance, see [CONTRIBUTING.md](./CONTRIBUTING.md), [SECURITY.md](./SECURITY.md), and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md). The detailed product and enhancement record is in [PROMP_IT_SYSTEM_CONVERSATION_AND_ENHANCEMENT.md](./PROMP_IT_SYSTEM_CONVERSATION_AND_ENHANCEMENT.md); released changes are summarized in [CHANGELOG.md](./CHANGELOG.md).
+For contribution, security, and conduct guidance, see [CONTRIBUTING.md](./CONTRIBUTING.md), [SECURITY.md](./SECURITY.md), and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md). Released changes are summarized in [CHANGELOG.md](./CHANGELOG.md).
 
 ## Publish and release
 

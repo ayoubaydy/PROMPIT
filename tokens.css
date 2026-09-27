@@ -1,0 +1,87 @@
+/* Hallmark · token export · custom liquid-glass system */
+:root,
+:host {
+  --color-paper: oklch(18% 0.015 255);
+  --color-paper-2: oklch(22% 0.018 255);
+  --color-paper-3: oklch(28% 0.018 255);
+  --color-glass: oklch(25% 0.020 255);
+  --color-glass-raised: oklch(31% 0.020 255);
+  --color-glass-edge: oklch(72% 0.028 255);
+  --color-rule: oklch(42% 0.018 255);
+  --color-rule-2: oklch(34% 0.016 255);
+  --color-neutral: oklch(62% 0.005 80);
+  --color-muted: oklch(74% 0.005 80);
+  --color-ink-2: oklch(86% 0.005 80);
+  --color-ink: oklch(97% 0.005 80);
+  --color-accent: oklch(76% 0.155 215);
+  --color-accent-ink: oklch(20% 0.005 80);
+  --color-focus: oklch(82% 0.185 215);
+  --color-success: oklch(76% 0.145 150);
+  --color-error: oklch(70% 0.175 25);
+  --color-warning: oklch(80% 0.135 80);
+  --color-scrim: oklch(10% 0.005 80);
+  --color-preview-paper: oklch(94% 0.005 80);
+  --color-preview-ink: oklch(22% 0.005 80);
+  --color-preview-rule: oklch(80% 0.005 80);
+  --color-preview-focus: oklch(45% 0.160 215);
+
+  --font-display: "Bahnschrift", "Aptos Display", ui-sans-serif, sans-serif;
+  --font-body: "Aptos", "Segoe UI Variable", ui-sans-serif, sans-serif;
+  --font-mono: "Cascadia Mono", "SFMono-Regular", ui-monospace, monospace;
+
+  --text-xs: 0.6875rem;
+  --text-sm: 0.8125rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.5625rem;
+  --text-xl: 1.9531rem;
+  --text-2xl: 2.4414rem;
+  --text-display: clamp(2.25rem, 5vw, 4.75rem);
+
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  --radius-xs: 0.5rem;
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-pill: 999rem;
+
+  --icon-sm: 1rem;
+  --icon-md: 1.25rem;
+  --icon-lg: 1.5rem;
+  --control-sm: 2.25rem;
+  --control-md: 2.75rem;
+
+  --rule-thin: 1px;
+  --rule-focus: 2px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+
+  --z-base: 1;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+  --z-extension: 2147483000;
+
+  --shadow-dock: 0 24px 70px oklch(8% 0.012 255 / 0.42);
+  --shadow-tight: 0 8px 22px oklch(8% 0.012 255 / 0.30);
+  --shadow-glass-edge: inset 0 1px 0 oklch(96% 0.005 80 / 0.08);
+  --blur-glass: 26px;
+}

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <title>Promp it · vision settings</title>
+    <link rel="stylesheet" href="options.css?v=1.10.13" />
+  </head>
+  <body>
+    <div class="options-shell">
+      <header class="options-header">
+        <a class="options-brand" href="#settings" aria-label="Promp it vision settings">
+          <span class="options-brand__logo" aria-hidden="true">
+            <img src="PROMPIT_LOGO.svg" alt="" />
+          </span>
+          <span class="options-brand__wordmark"><span>Promp</span><span>it</span></span>
+        </a>
+        <span class="options-header__meta">Local by default &middot; v1.10.13</span>
+      </header>
+
+      <main id="settings">
+        <div class="options-layout">
+          <form class="settings-surface" id="settings-form" novalidate>
+            <section class="extension-state-settings" aria-labelledby="extension-state-title">
+              <div class="section-heading">
+                <p class="options-kicker">Browser extension</p>
+                <h2 id="extension-state-title">Promp it on websites</h2>
+                <p>Show the image button, right-click actions, and capture tools. Turn this off to keep Promp it inactive everywhere while retaining your local settings and history.</p>
+              </div>
+              <label class="settings-switch settings-switch--power" for="extension-enabled">
+                <input id="extension-enabled" name="extensionEnabled" type="checkbox" checked />
+                <span class="settings-switch__track" aria-hidden="true"><span></span></span>
+                <span id="extension-enabled-label">Enabled</span>
+              </label>
+            </section>
+            <section class="provider-settings">
+              <div class="section-heading">
+                <h2>Vision runtime</h2>
+                <p>Keep analysis local with Ollama, use an OpenAI-compatible vision endpoint, or let Promp it fall back automatically when local Ollama is unavailable.</p>
+              </div>
+              <label class="field">
+                <span>Vision provider</span>
+                <select id="vision-provider" name="visionProvider" aria-describedby="vision-provider-help">
+                  <option value="ollama">Ollama — local only</option>
+                  <option value="api">Vision API — external</option>
+                  <option value="auto">Automatic — Ollama, then API fallback</option>
+                </select>
+                <small id="vision-provider-help">Local is the default. Automatic uses the API only after Ollama cannot be reached.</small>
+              </label>
+              <div class="ollama-runtime-fields" id="ollama-runtime-fields">
+              <label class="field">
+                <span>Local server URL</span>
+                <input id="ollama-base-url" name="ollamaBaseUrl" type="url" autocomplete="off" spellcheck="false" placeholder="http://127.0.0.1:11434" />
+                <small>Use the local Ollama address. No authentication header is sent.</small>
+              </label>
+              <label class="field">
+                <span>Model selection</span>
+                <select id="model-profile" name="modelProfile">
+                  <option value="auto">Automatic &mdash; strongest installed vision model</option>
+                  <option value="custom">Choose an installed model</option>
+                </select>
+                <small>Automatic ranks known local vision models. Manual selection uses exactly the model chosen below.</small>
+              </label>
+              <label class="field">
+                <span>Installed Ollama model</span>
+                <span class="model-picker">
+                  <select id="ollama-model" name="ollamaModel" aria-describedby="model-help">
+                    <option value="qwen3.5:4b">qwen3.5:4b &mdash; configured fallback</option>
+                  </select>
+                  <button class="icon-button" id="refresh-models" type="button" data-state="default" aria-label="Detect installed Ollama models">
+                    <span class="button__spinner" aria-hidden="true"></span>
+                    <svg class="button__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"></path><path d="M20 4v6h-6"></path></svg>
+                  </button>
+                </span>
+                <small id="model-help">Detecting installed models from local Ollama…</small>
+              </label>
+              </div>
+              <div class="api-runtime-fields" id="api-runtime-fields" hidden>
+                <label class="field">
+                  <span>API base URL</span>
+                  <input id="api-vision-base-url" name="apiVisionBaseUrl" type="url" autocomplete="off" spellcheck="false" placeholder="https://api.example.com/v1" />
+                  <small>Use an OpenAI-compatible base URL. Promp it appends <code>/chat/completions</code> when needed.</small>
+                </label>
+                <label class="field">
+                  <span>Vision model</span>
+                  <input id="api-vision-model" name="apiVisionModel" type="text" autocomplete="off" spellcheck="false" placeholder="Your provider's vision-capable model" maxlength="160" />
+                  <small>The selected model must accept image data URLs and JSON-formatted responses.</small>
+                </label>
+                <label class="field">
+                  <span>API key</span>
+                  <input id="api-vision-key" name="apiVisionKey" type="password" autocomplete="off" spellcheck="false" placeholder="Stored only in this browser profile" maxlength="800" />
+                  <small>Stored in this extension’s local browser storage. When API mode is used, selected pixels are sent to that provider.</small>
+                </label>
+              </div>
+            </section>
+
+            <section class="enhancement-settings" aria-labelledby="enhancement-title">
+              <div class="section-heading section-heading--action">
+                <div class="section-heading__title">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3"></path><path d="M12 18v3"></path><path d="M3 12h3"></path><path d="M18 12h3"></path><path d="m5.64 5.64 2.12 2.12"></path><path d="m16.24 16.24 2.12 2.12"></path><path d="m18.36 5.64-2.12 2.12"></path><path d="m7.76 16.24-2.12 2.12"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <div>
+                    <h2 id="enhancement-title">Professional prompt refinement</h2>
+                    <p>After factual image analysis, run a text-only art-direction pass with current cinematic, editorial, material, color, and perspective language.</p>
+                  </div>
+                </div>
+                <label class="settings-switch">
+                  <input id="prompt-enhancement-enabled" name="promptEnhancementEnabled" type="checkbox" checked />
+                  <span class="settings-switch__track" aria-hidden="true"><span></span></span>
+                  <span>Enabled</span>
+                </label>
+              </div>
+              <div class="memory-control">
+                <div class="memory-control__copy">
+                  <strong>Local learning memory</strong>
+                  <small id="learning-memory-status">Learns generalized art-direction preferences only when you copy a generated prompt. It never retrains Ollama or stores subject identity.</small>
+                </div>
+                <div class="memory-control__actions">
+                  <label class="settings-switch">
+                    <input id="prompt-learning-enabled" name="promptLearningEnabled" type="checkbox" checked />
+                    <span class="settings-switch__track" aria-hidden="true"><span></span></span>
+                    <span>Enabled</span>
+                  </label>
+                  <button class="text-button text-button--icon" id="reset-learning-memory" type="button" data-state="default">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5"></path></svg>
+                    <span>Reset memory</span>
+                  </button>
+                </div>
+              </div>
+              <label class="field">
+                <span>Refinement treatment</span>
+                <select id="prompt-enhancement-preset" name="promptEnhancementPreset">
+                  <option value="professional">Art-directed prompt</option>
+                  <option value="premium_ad">Premium campaign</option>
+                </select>
+                <small>Art-directed uses the selected visual system. Premium emphasizes campaign hierarchy and material polish without dated quality tags.</small>
+              </label>
+              <div class="enhancement-control-grid">
+                <label class="field">
+                  <span>Creative direction</span>
+                  <select id="prompt-creative-direction" name="promptCreativeDirection">
+                    <option value="contemporary_auto">Contemporary auto</option>
+                    <option value="source_match">Match source</option>
+                    <option value="cinematic_naturalism">Cinematic naturalism</option>
+                    <option value="editorial_tension">Contemporary editorial tension</option>
+                    <option value="luxury_campaign">Luxury campaign</option>
+                    <option value="direct_flash">Direct-flash culture</option>
+                    <option value="analog_tactile">Analog tactile</option>
+                    <option value="sculptural_product">Sculptural product</option>
+                    <option value="surreal_perspective">Surreal perspective</option>
+                    <option value="documentary_realism">Documentary realism</option>
+                  </select>
+                  <small>Auto classifies the image and selects one coherent current visual system—not a pile of trend words.</small>
+                </label>
+                <label class="field">
+                  <span>Creative latitude</span>
+                  <select id="prompt-creative-latitude" name="promptCreativeLatitude">
+                    <option value="directed">Directed — balanced</option>
+                    <option value="strict">Strict — source locked</option>
+                    <option value="exploratory">Exploratory — reinterpret</option>
+                  </select>
+                  <small>Directed preserves the scene and camera while modernizing color science, texture, spatial energy, and art-direction language.</small>
+                </label>
+              </div>
+              <label class="field field--instructions">
+                <span>Refinement direction</span>
+                <textarea id="prompt-enhancement-instructions" name="promptEnhancementInstructions" rows="5" maxlength="2400" spellcheck="true" aria-describedby="enhancement-help enhancement-count" placeholder="Example: Favor deep foreground staging, motivated practical light, subtle negative fill, contemporary fashion-editorial restraint, and authentic skin texture. Keep wardrobe, pose, camera view, and crop fixed."></textarea>
+                <small id="enhancement-help">Optional production direction layered after the selected visual system. Verified facts and your latitude setting remain authoritative.</small>
+              </label>
+              <span class="instructions-count" id="enhancement-count">0 / 2400</span>
+            </section>
+
+            <section class="instructions-settings" aria-labelledby="instructions-title">
+              <div class="section-heading section-heading--action">
+                <div class="section-heading__title">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <line x1="4" x2="4" y1="21" y2="14"></line>
+                    <line x1="4" x2="4" y1="10" y2="3"></line>
+                    <line x1="12" x2="12" y1="21" y2="12"></line>
+                    <line x1="12" x2="12" y1="8" y2="3"></line>
+                    <line x1="20" x2="20" y1="21" y2="16"></line>
+                    <line x1="20" x2="20" y1="12" y2="3"></line>
+                    <line x1="1" x2="7" y1="14" y2="14"></line>
+                    <line x1="9" x2="15" y1="8" y2="8"></line>
+                    <line x1="17" x2="23" y1="16" y2="16"></line>
+                  </svg>
+                  <div>
+                    <h2 id="instructions-title">Analysis instructions</h2>
+                    <p>Shape the output for your workflow without weakening factual image checks.</p>
+                  </div>
+                </div>
+                <button class="text-button text-button--icon" id="reset-instructions" type="button" data-state="default">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5"></path></svg>
+                  <span>Reset</span>
+                </button>
+              </div>
+              <label class="field field--instructions">
+                <span>Additional instructions</span>
+                <textarea id="custom-instructions" name="customInstructions" rows="7" maxlength="4000" spellcheck="true" aria-describedby="instructions-help instructions-count" placeholder="Example: Prioritize exact architectural vanishing points, camera height, and every visible light source. Keep the final prompt under 220 words."></textarea>
+                <small id="instructions-help">Added after Promp it's built-in geometry and lighting brief. Visual evidence always wins.</small>
+              </label>
+              <span class="instructions-count" id="instructions-count">0 / 4000</span>
+            </section>
+
+            <div class="settings-actions">
+              <button class="button button--quiet" id="test-ollama" type="button" data-state="default">
+                <span class="button__spinner" aria-hidden="true"></span>
+                <svg class="button__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                <span>Test vision runtime</span>
+              </button>
+              <button class="button button--primary" type="submit" data-state="default">
+                <span class="button__spinner" aria-hidden="true"></span>
+                <svg class="button__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"></path><path d="M17 21v-8H7v8"></path><path d="M7 3v5h8"></path></svg>
+                <span>Save settings</span>
+              </button>
+            </div>
+            <p class="settings-status" id="settings-status" aria-live="polite"></p>
+          </form>
+
+          <aside class="options-aside">
+            <section class="aside-block">
+              <p class="options-kicker">Private by default</p>
+              <h2>Your pixels stay local.</h2>
+              <dl>
+                <div><dt>Default runtime</dt><dd>Local Ollama</dd></div>
+                <div><dt>External API</dt><dd>Optional</dd></div>
+                <div><dt>Cloud upload</dt><dd>Only when enabled</dd></div>
+              </dl>
+            </section>
+            <section class="aside-block aside-block--history">
+              <h2>Local history</h2>
+              <p>Promp it keeps the latest 20 analyses. Export creates one ZIP with prompt-kind-named folders containing each image, prompt, and structured JSON.</p>
+              <button class="text-button text-button--icon" id="export-history" type="button" data-state="default">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>
+                <span>Export history ZIP</span>
+              </button>
+              <button class="text-button text-button--icon" id="clear-history" type="button" data-state="default">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18"></path><path d="M8 6V4h8v2"></path><path d="M19 6l-1 14H6L5 6"></path><path d="M10 11v5"></path><path d="M14 11v5"></path></svg>
+                <span>Clear local history</span>
+              </button>
+            </section>
+            <section class="aside-block aside-block--about" aria-labelledby="about-baydy-art">
+              <p class="options-kicker">Connect &amp; community</p>
+              <h2 id="about-baydy-art">About Baydy Art</h2>
+              <div class="options-about__links" aria-label="Baydy Art links">
+                <a class="text-button text-button--icon" href="https://baydy.art" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18"></path><path d="M12 3a14 14 0 0 0 0 18"></path></svg>
+                  <span>Website</span>
+                </a>
+                <a class="text-button text-button--icon" href="https://www.linkedin.com/in/ayoubaydy/" target="_blank" rel="noopener noreferrer" aria-label="Ayoub Baydy on LinkedIn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="16" height="16" x="4" y="4" rx="2"></rect><path d="M8 10v6"></path><path d="M8 7v.01"></path><path d="M12 16v-3a3 3 0 0 1 6 0v3"></path><path d="M12 10v6"></path></svg>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+              <p class="options-about__signature">Developed by <a href="https://baydy.art" target="_blank" rel="noopener noreferrer">https://baydy.art</a></p>
+            </section>
+          </aside>
+        </div>
+      </main>
+
+      <footer class="options-footer">
+        <span>Promp it v1.10.13 · Developed by <a href="https://baydy.art" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">https://baydy.art</a></span>
+        <span>Hover an image · right-click · or press Ctrl+Shift+P</span>
+      </footer>
+    </div>
+    <script src="options.js"></script>
+  </body>
+</html>
