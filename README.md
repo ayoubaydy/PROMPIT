@@ -24,7 +24,7 @@
   <a href="https://github.com/baydy-art/Promp_it/releases"><img src="https://img.shields.io/badge/version-1.10.13-242424?style=flat-square" alt="Version 1.10.13"></a>
   <a href="https://developer.chrome.com/docs/extensions/mv3/intro/"><img src="https://img.shields.io/badge/manifest-V3-242424?style=flat-square" alt="Manifest V3"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-242424?style=flat-square" alt="MIT License"></a>
-  <a href="https://www.baydy.art"><img src="https://img.shields.io/badge/by-Baydy_Art-242424?style=flat-square" alt="Baydy Art"></a>
+  <a href="https://baydy.art/"><img src="https://img.shields.io/badge/by-Baydy_Art-242424?style=flat-square" alt="Baydy Art"></a>
 </p>
 
 ---
@@ -201,10 +201,10 @@ For a GitHub release, attach the source archive and the generic extension archiv
 ## Connect & community
 
 <p align="center">
-  <a href="https://www.baydy.art">Website</a> &nbsp;•&nbsp;
+  <a href="https://baydy.art/">Website</a> &nbsp;•&nbsp;
   <a href="https://www.linkedin.com/in/ayoubbaydy/">LinkedIn — Ayoub Baydy</a>
   <br><br>
-  Designed &amp; developed by <a href="https://www.baydy.art"><strong>Baydy Art</strong></a>
+  Designed &amp; developed by <a href="https://baydy.art/"><strong>Baydy Art</strong></a>
   <br>
-  <a href="https://www.baydy.art"><img src="./PROMPIT_LOGO.svg" width="30" alt="Baydy Art"></a>
+  <a href="https://baydy.art/"><img src="./PROMPIT_LOGO.svg" width="30" alt="Baydy Art"></a>
 </p>
